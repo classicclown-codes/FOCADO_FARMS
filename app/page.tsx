@@ -57,7 +57,7 @@ export default function HomePage() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">Healthy genetics. Vaccinated stock. Expert guidance. Trusted by farmers across Nigeria.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <CTAButton href="/request-quote">Request a Quote</CTAButton>
-              <a href="https://wa.me/2348060000000" className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/20">
+              <a href="https://wa.me/2348160567319" className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/20">
                 <MessageCircleMore size={16} /> Chat on WhatsApp
               </a>
             </div>
@@ -157,7 +157,7 @@ export default function HomePage() {
           </div>
           <div className="mt-8 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
             <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900/70">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Customer testimonial" loading="lazy" className="h-52 w-full rounded-[24px] object-cover" />
+              <img src="null" alt="Customer testimonial" loading="lazy" className="h-52 w-full rounded-[24px] object-cover" />
               <div className="mt-4">
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{testimonials[activeTestimonial].name}</h3>
                 <p className="mt-2 flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300"><MapPin size={16} /> {testimonials[activeTestimonial].location}</p>

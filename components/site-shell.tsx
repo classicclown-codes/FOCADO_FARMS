@@ -115,13 +115,13 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         <div className="mx-auto mt-10 flex max-w-7xl flex-col justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row">
           <p>© 2026 Focado Farms & Resorts Ltd. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="https://wa.me/2348060000000" className="transition hover:text-white">WhatsApp</a>
+            <a href="https://wa.me/2348160567319" className="transition hover:text-white">WhatsApp</a>
             <a href="mailto:inquiries@focadofarms.com" className="transition hover:text-white">Email</a>
           </div>
         </div>
       </footer>
 
-      <a href="https://wa.me/2348060000000" className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-premium transition hover:scale-105">
+      <a href="https://wa.me/2348160567319" className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-premium transition hover:scale-105">
         <MessageCircleMore size={18} /> Chat on WhatsApp
       </a>
     </div>

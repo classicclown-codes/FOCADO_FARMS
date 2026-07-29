@@ -187,11 +187,11 @@ export const services = [
 
 export const trustBadges = ['Healthy Stock', 'Vaccinated', 'Farm Support', 'Trusted Genetics'];
 
-export const heroImage = 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1400&q=80';
+export const heroImage = 'null';
 
 export const companyInfo = {
-  phone: '+234 806 000 0000',
-  email: 'inquiries@focadofarms.com',
-  address: 'Ibeju-Lekki, Lagos State, Nigeria',
+  phone: '+234 8160567319',
+  email: '@focadofarms.com',
+  address: 'Ogba river-Benin city, Edo State, Nigeria',
   hours: 'Mon–Sat · 8:00am – 6:00pm',
 };
