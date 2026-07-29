@@ -187,7 +187,7 @@ export const services = [
 
 export const trustBadges = ['Healthy Stock', 'Vaccinated', 'Farm Support', 'Trusted Genetics'];
 
-export const heroImage = 'null';
+export const heroImage = 'https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=900&q=80';
 
 export const companyInfo = {
   phone: '+234 8160567319',
