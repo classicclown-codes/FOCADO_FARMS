@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { CTAButton, SectionHeading } from '@/components/site-shell';
 import { InquiryForm } from '@/components/inquiry-form';
 import { MediaSlideshow } from '@/components/media-slideshow';
-import { blogPosts, companyInfo, comparisonRows, faqs, features, farmFootageItems, stats, trustBadges } from '@/lib/content';
+import { blogPosts, companyInfo, comparisonRows, faqs, features, farmFootageItems, heroImage, stats, trustBadges } from '@/lib/content';
 import { CheckCircle2, MessageCircleMore } from 'lucide-react';
 
 function Counter({ value, label }: { value: string; label: string }) {
@@ -43,10 +43,12 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <video
             src="/videos/farm-tour.mp4"
+            poster={heroImage}
             autoPlay
             muted
             loop
             playsInline
+            preload="metadata"
             className="h-full w-full scale-105 object-cover opacity-80"
           />
         </div>
@@ -125,20 +127,20 @@ export default function HomePage() {
           <CTAButton href="/request-quote" variant="secondary">Compare your options</CTAButton>
         </div>
         <div className="mt-10 overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950/70">
-          <table className="min-w-full text-left">
-            <thead className="bg-slate-50 text-sm uppercase tracking-[0.25em] text-slate-500 dark:bg-slate-900/70 dark:text-slate-400">
+          <table className="w-full table-fixed text-left text-xs sm:text-sm">
+            <thead className="bg-slate-50 text-[0.65rem] uppercase tracking-[0.08em] text-slate-500 dark:bg-slate-900/70 dark:text-slate-400 sm:text-xs sm:tracking-[0.15em]">
               <tr>
-                <th className="px-6 py-4">Area</th>
-                <th className="px-6 py-4">Focado Farms</th>
-                <th className="px-6 py-4">Typical suppliers</th>
+                <th className="w-[27%] px-3 py-3 sm:px-6 sm:py-4">Area</th>
+                <th className="w-[36.5%] px-3 py-3 sm:px-6 sm:py-4">Focado Farms</th>
+                <th className="w-[36.5%] px-3 py-3 sm:px-6 sm:py-4">Typical suppliers</th>
               </tr>
             </thead>
             <tbody>
               {comparisonRows.map((row) => (
                 <tr key={row.label} className="border-t border-slate-200 dark:border-slate-800">
-                  <td className="px-6 py-4 font-semibold text-slate-900 dark:text-white">{row.label}</td>
-                  <td className="px-6 py-4 text-slate-700 dark:text-slate-300">{row.valueA}</td>
-                  <td className="px-6 py-4 text-slate-700 dark:text-slate-300">{row.valueB}</td>
+                  <td className="break-words px-3 py-3 font-semibold text-slate-900 dark:text-white sm:px-6 sm:py-4">{row.label}</td>
+                  <td className="break-words px-3 py-3 text-slate-700 dark:text-slate-300 sm:px-6 sm:py-4">{row.valueA}</td>
+                  <td className="break-words px-3 py-3 text-slate-700 dark:text-slate-300 sm:px-6 sm:py-4">{row.valueB}</td>
                 </tr>
               ))}
             </tbody>
