@@ -14,11 +14,11 @@ import {
 import { breedGalleryImages, galleryOnlyImages as uploadedGalleryImages, heroImage as generatedHeroImage, uploadedVideos } from './generated-media';
 
 export const companyInfo = {
-  phone: process.env.NEXT_PUBLIC_COMPANY_PHONE ?? 'REPLACE_WITH_PHONE',
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? 'REPLACE_WITH_WHATSAPP_NUMBER',
-  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL ?? 'REPLACE_WITH_EMAIL',
-  address: process.env.NEXT_PUBLIC_COMPANY_ADDRESS ?? 'REPLACE_WITH_BUSINESS_ADDRESS',
-  hours: process.env.NEXT_PUBLIC_COMPANY_HOURS ?? 'REPLACE_WITH_BUSINESS_HOURS',
+  phone: process.env.NEXT_PUBLIC_COMPANY_PHONE ?? '+2348160567319',
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '2348160567319',
+  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL ?? 'Focadofarmsandresorts@gmail.com',
+  address: process.env.NEXT_PUBLIC_COMPANY_ADDRESS ?? 'Ogba River, Benin City, Edo State, Nigeria',
+  hours: process.env.NEXT_PUBLIC_COMPANY_HOURS ?? 'Mon-Sat, 9:00am-5:00pm',
 };
 
 export type FeatureItem = {

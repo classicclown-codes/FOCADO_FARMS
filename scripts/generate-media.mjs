@@ -42,6 +42,7 @@ function isBrowserImage(filePath) {
 }
 
 const imageFiles = collectFiles(imageDir, ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif', '.bmp', '.jfif'])
+  .filter((file) => !/\/logo\.[^/]+$/i.test(file))
   .filter((file) => isBrowserImage(path.join(publicDir, file.slice(1))));
 const videoFiles = collectFiles(videoDir, ['.mp4', '.webm', '.mov', '.ogg']);
 
