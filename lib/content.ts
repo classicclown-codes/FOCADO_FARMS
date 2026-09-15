@@ -111,6 +111,15 @@ export const galleryItems: GalleryItem[] = [
   })),
 ];
 
+const deployedVideoPaths = uploadedVideos.filter((src) => /\/(farm-tour|breed[1-3])\.mp4$/i.test(src));
+
+export const farmFootageItems: GalleryItem[] = deployedVideoPaths.map((src, index) => ({
+  title: `Farm footage ${index + 1}`,
+  type: 'video',
+  src,
+  poster: galleryImageSet[index % galleryImageSet.length],
+}));
+
 export const farmVisitHighlights = [
   {
     title: 'Fresh farm footage',

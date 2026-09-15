@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { CTAButton, SectionHeading } from '@/components/site-shell';
 import { InquiryForm } from '@/components/inquiry-form';
 import { MediaSlideshow } from '@/components/media-slideshow';
-import { blogPosts, companyInfo, comparisonRows, faqs, features, galleryItems, stats, trustBadges } from '@/lib/content';
+import { blogPosts, companyInfo, comparisonRows, faqs, features, farmFootageItems, stats, trustBadges } from '@/lib/content';
 import { CheckCircle2, MessageCircleMore } from 'lucide-react';
 
 function Counter({ value, label }: { value: string; label: string }) {
@@ -115,7 +115,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionHeading eyebrow="Farm footage" title="See the farm and stock you are buying." description="Real footage from our Nigerian operations helps buyers understand our stock, handling, and delivery process." />
         <div className="mt-10">
-          <MediaSlideshow items={galleryItems} />
+          <MediaSlideshow items={farmFootageItems} />
         </div>
       </section>
 
