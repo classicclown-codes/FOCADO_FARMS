@@ -44,7 +44,9 @@ function isBrowserImage(filePath) {
 const imageFiles = collectFiles(imageDir, ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif', '.bmp', '.jfif'])
   .filter((file) => !/\/logo\.[^/]+$/i.test(file))
   .filter((file) => isBrowserImage(path.join(publicDir, file.slice(1))));
-const videoFiles = collectFiles(videoDir, ['.mp4', '.webm', '.mov', '.ogg']);
+const allVideoFiles = collectFiles(videoDir, ['.mp4', '.webm', '.mov', '.ogg']);
+const optimizedVideoNames = new Set(allVideoFiles.filter((file) => file.includes('/optimized/')).map((file) => path.basename(file)));
+const videoFiles = allVideoFiles.filter((file) => !optimizedVideoNames.has(path.basename(file)) || file.includes('/optimized/'));
 
 const heroImage = imageFiles.find((file) => /hero|cover|banner/i.test(file)) ?? imageFiles[0] ?? '';
 const breedGalleryImages = imageFiles.filter((file) => /breed|pig|stock|animal/i.test(file)).slice(0, 3);

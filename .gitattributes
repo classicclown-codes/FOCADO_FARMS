@@ -3,6 +3,7 @@ public/videos/breed1.mp4 -filter -diff -merge -text
 public/videos/breed2.mp4 -filter -diff -merge -text
 public/videos/breed3.mp4 -filter -diff -merge -text
 public/videos/farm-tour.mp4 -filter -diff -merge -text
+public/videos/optimized/** -filter -diff -merge -text
 public/videos/breed1.mp4 !text !filter !merge !diff
 public/videos/breed2.mp4 !text !filter !merge !diff
 public/videos/breed3.mp4 !text !filter !merge !diff
