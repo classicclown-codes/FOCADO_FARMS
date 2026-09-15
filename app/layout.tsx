@@ -3,6 +3,7 @@ import './globals.css';
 import { SiteShell } from '@/components/site-shell';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
   title: 'Focado Farms & Resorts Ltd. | Premium Pig Breeding Stock in Nigeria',
   description: 'Premium pig breeding stock, healthy genetics, vaccinated animals, and expert farm support for serious farmers and livestock investors in Nigeria.',
   keywords: ['pig breeding', 'livestock Nigeria', 'piglets', 'farming support', 'agriculture'],
@@ -10,7 +11,9 @@ export const metadata: Metadata = {
     title: 'Focado Farms & Resorts Ltd.',
     description: 'Premium pig breeding stock for farmers who want better returns.',
     type: 'website',
+    images: ['/images/logo.png'],
   },
+  icons: { icon: '/images/logo.png' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { CTAButton, SectionHeading } from '@/components/site-shell';
 import { features, stats } from '@/lib/content';
 

@@ -8,7 +8,7 @@ export default function BreedsPage() {
       <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {breeds.map((breed) => (
           <article key={breed.name} className="overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/70">
-            <img src={breed.image} alt={breed.name} loading="lazy" className="h-48 w-full object-cover" />
+            <video src={breed.video} muted autoPlay loop playsInline preload="metadata" aria-label={`${breed.name} video footage`} className="h-48 w-full bg-slate-200 object-cover" />
             <div className="p-6">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{breed.name}</h3>

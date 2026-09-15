@@ -2,20 +2,24 @@ import type { LucideIcon } from 'lucide-react';
 import {
   BadgeCheck,
   BarChart3,
-  BookOpen,
   Building2,
-  Camera,
-  CheckCircle2,
   CircleDollarSign,
   HeartHandshake,
   Leaf,
-  MapPin,
   Microscope,
   ShieldCheck,
   Sprout,
   UserCheck,
-  ArrowRight,
 } from 'lucide-react';
+import { breedGalleryImages, galleryOnlyImages as uploadedGalleryImages, heroImage as generatedHeroImage, uploadedVideos } from './generated-media';
+
+export const companyInfo = {
+  phone: process.env.NEXT_PUBLIC_COMPANY_PHONE ?? 'REPLACE_WITH_PHONE',
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? 'REPLACE_WITH_WHATSAPP_NUMBER',
+  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL ?? 'REPLACE_WITH_EMAIL',
+  address: process.env.NEXT_PUBLIC_COMPANY_ADDRESS ?? 'REPLACE_WITH_BUSINESS_ADDRESS',
+  hours: process.env.NEXT_PUBLIC_COMPANY_HOURS ?? 'REPLACE_WITH_BUSINESS_HOURS',
+};
 
 export type FeatureItem = {
   title: string;
@@ -56,74 +60,69 @@ export const features: FeatureItem[] = [
   },
 ];
 
-export const breeds = [
+const breedCatalog = [
   {
     name: 'Large White',
-    image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80',
     description: 'Fast-growing and highly valued for meat yield and strong carcass quality.',
     suitableFor: 'Commercial growers, meat producers, investors',
-    availability: 'Available now',
+    availability: 'Confirm availability',
   },
   {
     name: 'Landrace',
-    image: 'https://images.unsplash.com/photo-1516467508483-1c5c2d4a8a3f?auto=format&fit=crop&w=900&q=80',
     description: 'Elegant, productive, and known for excellent mothering ability and feed conversion.',
     suitableFor: 'Breeding herds, nucleus farms, premium buyers',
-    availability: 'Limited batches',
+    availability: 'Confirm availability',
   },
   {
     name: 'TN70',
-    image: 'https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=900&q=80',
     description: 'A dependable choice for farmers seeking robust growth and practical performance.',
     suitableFor: 'Smallholders upgrading stock, consultants, mixed farms',
-    availability: 'Upcoming release',
-  },
-  {
-    name: 'Coming Soon',
-    image: 'https://images.unsplash.com/photo-1535914254981-b5012e5b6b9f?auto=format&fit=crop&w=900&q=80',
-    description: 'Additional premium breeds are being prepared for future release.',
-    suitableFor: 'Specialized breeding programs, strategic expansion',
-    availability: 'Planned',
+    availability: 'Confirm availability',
   },
 ];
 
-export const galleryItems = [
-  { title: 'Farm', image: 'https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=900&q=80' },
-  { title: 'Piglets', image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80' },
-  { title: 'Growers', image: 'https://images.unsplash.com/photo-1553284965-83fd3e2f4a4e?auto=format&fit=crop&w=900&q=80' },
-  { title: 'Feed', image: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=900&q=80' },
-  { title: 'Facilities', image: 'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=900&q=80' },
-  { title: 'Workers', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80' },
-  { title: 'Equipment', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80' },
+export const breeds = breedCatalog.map((breed, index) => ({
+  ...breed,
+  image: breedGalleryImages[index] ?? breedGalleryImages[0] ?? '',
+  video: `/videos/breed${index + 1}.mp4`,
+}));
+
+export type GalleryItem = {
+  title: string;
+  type: 'image' | 'video';
+  src: string;
+  poster?: string;
+};
+
+export const galleryOnlyImages = uploadedGalleryImages.length ? uploadedGalleryImages : [];
+const galleryImageSet = galleryOnlyImages;
+
+export const galleryItems: GalleryItem[] = [
+  ...galleryImageSet.map((src, index) => ({
+    title: `Farm image ${index + 1}`,
+    type: 'image' as const,
+    src,
+  })),
+  ...uploadedVideos.map((src, index) => ({
+    title: `Farm video ${index + 1}`,
+    type: 'video' as const,
+    src,
+    poster: galleryImageSet.length ? galleryImageSet[index % galleryImageSet.length] : undefined,
+  })),
 ];
 
-export const testimonials = [
+export const farmVisitHighlights = [
   {
-    name: 'Adewale O.',
-    location: 'Lagos State',
-    review: 'The quality was noticeably better than what we had been buying. Our survival rates improved within weeks.',
-    rating: 5,
-    pigs: '120 pigs',
-    before: '70% survival',
-    after: '92% survival',
+    title: 'Fresh farm footage',
+    description: 'Video clips from the recent farm visit help buyers understand the environment, animal condition, and daily operations.',
   },
   {
-    name: 'Nneka A.',
-    location: 'Abuja',
-    review: 'Their support made the transition easier for our farm. We could plan growth with much more confidence.',
-    rating: 5,
-    pigs: '80 pigs',
-    before: '2.4kg/day gain',
-    after: '3.1kg/day gain',
+    title: 'Supporting photos',
+    description: 'The collected pictures cover stock, housing, handling, and farm facilities so you can assess the setup more clearly.',
   },
   {
-    name: 'Bashir K.',
-    location: 'Kano',
-    review: 'Professional service, clear guidance, real results. We were impressed by the delivery and health standards.',
-    rating: 5,
-    pigs: '250 pigs',
-    before: '3.1 months to market',
-    after: '2.4 months to market',
+    title: 'Better buying confidence',
+    description: 'This documentation brings more transparency to the decision process before purchase, collection, or delivery.',
   },
 ];
 
@@ -155,11 +154,11 @@ export const faqs = [
 ];
 
 export const stats = [
-  { value: '25+', label: 'Years of Livestock Experience' },
-  { value: '1,200+', label: 'Pigs Supplied' },
-  { value: '98%', label: 'Client Satisfaction' },
-  { value: '24/7', label: 'WhatsApp Support' },
-];
+  { value: process.env.NEXT_PUBLIC_YEARS_EXPERIENCE ?? '', label: 'Years of Livestock Experience' },
+  { value: process.env.NEXT_PUBLIC_PIGS_SUPPLIED ?? '', label: 'Pigs Supplied' },
+  { value: process.env.NEXT_PUBLIC_CLIENT_SATISFACTION ?? '', label: 'Client Satisfaction' },
+  { value: process.env.NEXT_PUBLIC_SUPPORT_HOURS ?? '', label: 'Support Availability' },
+].filter((stat) => stat.value);
 
 export const navItems = [
   { label: 'Home', href: '/' },
@@ -187,11 +186,4 @@ export const services = [
 
 export const trustBadges = ['Healthy Stock', 'Vaccinated', 'Farm Support', 'Trusted Genetics'];
 
-export const heroImage = 'https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=900&q=80';
-
-export const companyInfo = {
-  phone: '+234 8160567319',
-  email: '@focadofarms.com',
-  address: 'Ogba river-Benin city, Edo State, Nigeria',
-  hours: 'Mon–Sat · 8:00am – 6:00pm',
-};
+export const heroImage = generatedHeroImage || '/images/hero.jpg';

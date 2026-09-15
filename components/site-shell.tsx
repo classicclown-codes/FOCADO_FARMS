@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ArrowRight, Menu, MessageCircleMore, MoonStar, SunMedium, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
@@ -27,9 +28,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/80">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-700 text-base font-semibold text-white">
-              FF
-            </div>
+            <Image src="/images/logo.png" alt="Focado Farms & Resorts Ltd." width={52} height={52} priority className="h-12 w-12 rounded-full object-cover" />
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700 dark:text-brand-100">Focado Farms</p>
               <p className="text-xs text-slate-600 dark:text-slate-300">Premium Pig Breeding Stock</p>
@@ -115,13 +114,13 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         <div className="mx-auto mt-10 flex max-w-7xl flex-col justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row">
           <p>© 2026 Focado Farms & Resorts Ltd. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="https://wa.me/2348160567319" className="transition hover:text-white">WhatsApp</a>
-            <a href="mailto:inquiries@focadofarms.com" className="transition hover:text-white">Email</a>
+            <a href={`https://wa.me/${companyInfo.whatsapp.replace(/\D/g, '')}`} className="transition hover:text-white">WhatsApp</a>
+            <a href={`mailto:${companyInfo.email}`} className="transition hover:text-white">Email</a>
           </div>
         </div>
       </footer>
 
-      <a href="https://wa.me/2348160567319" className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-premium transition hover:scale-105">
+      <a href={`https://wa.me/${companyInfo.whatsapp.replace(/\D/g, '')}`} className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-premium transition hover:scale-105">
         <MessageCircleMore size={18} /> Chat on WhatsApp
       </a>
     </div>

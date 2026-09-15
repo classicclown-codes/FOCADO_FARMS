@@ -1,4 +1,5 @@
 import { CTAButton, SectionHeading } from '@/components/site-shell';
+import { InquiryForm } from '@/components/inquiry-form';
 import { companyInfo } from '@/lib/content';
 
 export default function ContactPage() {
@@ -14,19 +15,13 @@ export default function ContactPage() {
             <p><span className="font-semibold text-slate-900 dark:text-white">Business hours:</span> {companyInfo.hours}</p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <CTAButton href="https://wa.me/2348160567319">Chat on WhatsApp</CTAButton>
+            <CTAButton href={`https://wa.me/${companyInfo.whatsapp.replace(/\D/g, '')}`}>Chat on WhatsApp</CTAButton>
             <CTAButton href="/consultation" variant="secondary">Book Consultation</CTAButton>
           </div>
         </div>
         <div className="rounded-[32px] bg-slate-950 p-8 text-white shadow-premium sm:p-10">
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-accent">Inquiry form</p>
-          <form className="mt-8 space-y-4">
-            <input className="w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm outline-none" placeholder="Full name" />
-            <input className="w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm outline-none" placeholder="Business or farm name" />
-            <input className="w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm outline-none" placeholder="Phone or email" />
-            <textarea className="min-h-[140px] w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm outline-none" placeholder="Tell us about your needs" />
-            <button className="rounded-full bg-accent px-5 py-3 text-sm font-semibold text-slate-950">Send inquiry</button>
-          </form>
+          <div className="mt-8"><InquiryForm /></div>
         </div>
       </div>
     </div>
