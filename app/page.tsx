@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 import { CTAButton, SectionHeading } from '@/components/site-shell';
 import { InquiryForm } from '@/components/inquiry-form';
 import { MediaSlideshow } from '@/components/media-slideshow';
-import { blogPosts, companyInfo, comparisonRows, faqs, features, farmFootageItems, heroImage, stats, trustBadges } from '@/lib/content';
+import { MutedVideo } from '@/components/muted-video';
+import { blogPosts, companyInfo, comparisonRows, faqs, features, farmFootageItems, stats, trustBadges } from '@/lib/content';
 import { CheckCircle2, MessageCircleMore } from 'lucide-react';
 
 function Counter({ value, label }: { value: string; label: string }) {
@@ -41,16 +42,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(90deg,_rgba(15,23,42,0.82)_0%,_rgba(15,23,42,0.58)_38%,_rgba(15,23,42,0.46)_100%)]" />
         <div className="absolute inset-0">
-          <video
-            src="/videos/farm-tour.mp4"
-            poster={heroImage}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="h-full w-full scale-105 object-cover opacity-80"
-          />
+          <MutedVideo src="/videos/optimized/farm-tour.mp4" poster="/videos/optimized/farm-tour.jpg" ariaLabel="Focado Farms farm footage" className="h-full w-full scale-105 object-cover opacity-80" />
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.18),_transparent_35%)]" />
         <div className="relative mx-auto flex min-h-[92vh] max-w-7xl flex-col justify-center px-4 py-24 sm:px-6 lg:px-8">

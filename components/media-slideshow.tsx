@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, ImageOff, Pause, Play } from 'lucide-react';
+import { MutedVideo } from '@/components/muted-video';
 import type { GalleryItem } from '@/lib/content';
 
 type MediaSlideshowProps = {
@@ -63,7 +64,7 @@ export function MediaSlideshow({ items, autoPlay = true }: MediaSlideshowProps) 
     >
       <div className="aspect-[4/3] min-h-[320px] sm:aspect-[16/9] sm:min-h-[420px]">
         {activeItem.type === 'video' ? (
-          <video key={activeItem.src} src={activeItem.src} poster={activeItem.poster} autoPlay muted loop playsInline preload="metadata" className="h-full w-full object-cover" />
+          <MutedVideo key={activeItem.src} src={activeItem.src} poster={activeItem.poster} ariaLabel={activeItem.title} className="h-full w-full object-cover" />
         ) : (
           <Image src={activeItem.src} alt={activeItem.title} fill sizes="(max-width: 640px) 100vw, 90vw" className="h-full w-full object-cover" />
         )}

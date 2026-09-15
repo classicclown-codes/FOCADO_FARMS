@@ -12,13 +12,14 @@ fs.mkdirSync(outputDir, { recursive: true });
 for (const name of videoNames) {
   const inputPath = path.join(videosDir, name);
   const outputPath = path.join(outputDir, name);
+  const posterPath = path.join(outputDir, `${path.parse(name).name}.jpg`);
 
   if (!fs.existsSync(inputPath)) {
     console.warn(`Skipped missing video: ${name}`);
     continue;
   }
 
-  if (fs.existsSync(outputPath) && fs.statSync(outputPath).mtimeMs >= fs.statSync(inputPath).mtimeMs) {
+  if (fs.existsSync(outputPath) && fs.existsSync(posterPath) && fs.statSync(outputPath).mtimeMs >= fs.statSync(inputPath).mtimeMs && fs.statSync(posterPath).mtimeMs >= fs.statSync(inputPath).mtimeMs) {
     continue;
   }
 
@@ -37,6 +38,20 @@ for (const name of videoNames) {
 
   if (result.status !== 0) {
     throw new Error(`FFmpeg failed for ${name}`);
+  }
+
+  const posterResult = spawnSync(ffmpegPath, [
+    '-y',
+    '-ss', '0',
+    '-i', inputPath,
+    '-frames:v', '1',
+    '-vf', 'scale=w=1280:h=720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,gblur=sigma=18',
+    '-q:v', '7',
+    posterPath,
+  ], { stdio: 'inherit' });
+
+  if (posterResult.status !== 0) {
+    throw new Error(`FFmpeg poster generation failed for ${name}`);
   }
 }
 

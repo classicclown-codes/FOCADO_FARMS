@@ -84,7 +84,8 @@ const breedCatalog = [
 export const breeds = breedCatalog.map((breed, index) => ({
   ...breed,
   image: breedGalleryImages[index] ?? breedGalleryImages[0] ?? '',
-  video: `/videos/breed${index + 1}.mp4`,
+  video: `/videos/optimized/breed${index + 1}.mp4`,
+  poster: `/videos/optimized/breed${index + 1}.jpg`,
 }));
 
 export type GalleryItem = {
@@ -117,7 +118,7 @@ export const farmFootageItems: GalleryItem[] = deployedVideoPaths.map((src, inde
   title: `Farm footage ${index + 1}`,
   type: 'video',
   src,
-  poster: galleryImageSet[index % galleryImageSet.length],
+  poster: src.replace(/\.mp4$/i, '.jpg'),
 }));
 
 export const farmVisitHighlights = [
